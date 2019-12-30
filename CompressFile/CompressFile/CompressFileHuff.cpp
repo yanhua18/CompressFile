@@ -36,14 +36,13 @@ void CompreeFileHuff::CompressFile(const string& Path)
 		}
 	}
 
-#if 0
 	//创建Huffman树
 	HuffmanTree<CharInfo> ht;
 	ht.CreatHuffmanTree(_charInfo, CharInfo(0));
 	//获取字符的编码
 	HuffmanCode(ht.GetRoot());
 
-#endif
+
 	delete[] ReadBuffer;
 	fclose(fIn);
 }
@@ -52,6 +51,31 @@ void CompreeFileHuff::CompressFile(const string& Path)
 //用每个字符的编码重新改写原文件
 void CompreeFileHuff::HuffmanCode(HuffmanTreeNode<CharInfo>* proot)
 {
-
+	if (proot == nullptr)
+	{
+		return;
+	}
+	HuffmanCode(proot->_pLeft);
+	HuffmanCode(proot->_pRight);
+	if (proot->_pLeft == nullptr&&proot->_pRight == nullptr)
+	{
+		HuffmanTreeNode<CharInfo>* pcur = proot;
+		HuffmanTreeNode<CharInfo>*pparent = proot->_pParent;
+		string& strCode = _charInfo[pcur->_value._ch]._strCode;
+		while (pparent)
+		{
+			if (pparent->_pLeft == pcur)
+			{
+				strCode += '0';
+			}
+			else
+			{
+				strCode += '1';
+			}
+			pcur = pparent;
+			pparent = pcur->_pParent;
+		}
+		reverse(strCode.begin(), strCode.end());
+	}
 }
 

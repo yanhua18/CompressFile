@@ -1,40 +1,26 @@
-﻿生成启动时间为 2019/12/28 18:59:47。
-     1>项目“c:\Users\new s3yoga\documents\visual studio 2013\Projects\CompressFile\CompressFile\CompressFile.vcxproj”在节点 2 上(Rebuild 个目标)。
+﻿生成启动时间为 2019/12/30 22:43:55。
+     1>项目“E:\程序文件\a_GitHub\CompressFile\CompressFile\CompressFile\CompressFile.vcxproj”在节点 2 上(Rebuild 个目标)。
      1>ClCompile:
          E:\VS2013\VC\bin\CL.exe /c /I"E:\App\Visual Leak Detector\include" /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D _MBCS /D _MBCS /D _CRT_SECURE_NO_WARNINGS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt CompressFileHuff.cpp
          CompressFileHuff.cpp
-     1>c:\users\new s3yoga\documents\visual studio 2013\projects\compressfile\compressfile\compressfile.h(20): warning C4520: “CharInfo”: 指定了多个默认构造函数
-     1>e:\vs2013\vc\include\xmemory0(588): error C2668: “CharInfo::CharInfo”: 对重载函数的调用不明确
-                 c:\users\new s3yoga\documents\visual studio 2013\projects\compressfile\compressfile\compressfile.h(13): 可能是“CharInfo::CharInfo(size_t)”
-                 c:\users\new s3yoga\documents\visual studio 2013\projects\compressfile\compressfile\compressfile.h(7): 或       “CharInfo::CharInfo(int)”
-                 尝试匹配参数列表“()”时
-                 e:\vs2013\vc\include\xmemory0(587): 编译类 模板 成员函数“void std::allocator<_Ty>::construct(_Ty *)”时
+     1>e:\程序文件\a_github\compressfile\compressfile\compressfile\huffmantree.hpp(58): warning C4018: “<”: 有符号/无符号不匹配
+                 e:\程序文件\a_github\compressfile\compressfile\compressfile\huffmantree.hpp(50): 编译类 模板 成员函数“void HuffmanTree<CharInfo>::CreatHuffmanTree(const std::vector<CharInfo,std::allocator<_Ty>> &,const w &)”时
                  with
                  [
                      _Ty=CharInfo
+         ,            w=CharInfo
                  ]
-                 e:\vs2013\vc\include\xmemory0(723): 参见对正在编译的函数 模板 实例化“void std::allocator<_Ty>::construct(_Ty *)”的引用
+                 e:\程序文件\a_github\compressfile\compressfile\compressfile\compressfilehuff.cpp(41): 参见对正在编译的函数 模板 实例化“void HuffmanTree<CharInfo>::CreatHuffmanTree(const std::vector<CharInfo,std::allocator<_Ty>> &,const w &)”的引用
                  with
                  [
                      _Ty=CharInfo
+         ,            w=CharInfo
                  ]
-                 e:\vs2013\vc\include\type_traits(572): 参见对正在编译的类 模板 实例化“std::allocator<_Ty>”的引用
-                 with
-                 [
-                     _Ty=CharInfo
-                 ]
-                 e:\vs2013\vc\include\vector(650): 参见对正在编译的类 模板 实例化“std::is_empty<_Alloc>”的引用
-                 with
-                 [
-                     _Alloc=std::allocator<CharInfo>
-                 ]
-                 c:\users\new s3yoga\documents\visual studio 2013\projects\compressfile\compressfile\compressfile.h(30): 参见对正在编译的类 模板 实例化“std::vector<CharInfo,std::allocator<_Ty>>”的引用
-                 with
-                 [
-                     _Ty=CharInfo
-                 ]
-     1>已完成生成项目“c:\Users\new s3yoga\documents\visual studio 2013\Projects\CompressFile\CompressFile\CompressFile.vcxproj”(Rebuild 个目标)的操作 - 失败。
+                 e:\程序文件\a_github\compressfile\compressfile\compressfile\compressfilehuff.cpp(40): 参见对正在编译的类 模板 实例化“HuffmanTree<CharInfo>”的引用
+     1>e:\程序文件\a_github\compressfile\compressfile\compressfile\huffmantree.hpp(60): error C2451: “CharInfo”类型的条件表达式是非法的
+                 没有可用于执行该转换的用户定义的转换运算符，或者无法调用该运算符
+     1>已完成生成项目“E:\程序文件\a_GitHub\CompressFile\CompressFile\CompressFile\CompressFile.vcxproj”(Rebuild 个目标)的操作 - 失败。
 
 生成失败。
 
-已用时间 00:00:00.77
+已用时间 00:00:00.83

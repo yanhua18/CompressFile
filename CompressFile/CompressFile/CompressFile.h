@@ -10,12 +10,23 @@ struct CharInfo
 	unsigned char _ch;//字符
 	int _charCount;//字符出现的次数
 	string _strCode;//字符的编码
-	CharInfo(size_t count = 0)
-		:_charCount(count)
-	{}
+	
+
 	CharInfo operator+(const CharInfo& c)const
 	{
 		return CharInfo(_charCount + c._charCount);
+	}
+	CharInfo operator!=(const CharInfo& c)const
+	{
+		return _charCount != c._charCount;
+	}
+	CharInfo operator==(const CharInfo& c)const
+	{
+		return _charCount == c._charCount;
+	}
+	CharInfo operator>(const CharInfo& c)const
+	{
+		return _charCount > c._charCount;
 	}
 };
 
