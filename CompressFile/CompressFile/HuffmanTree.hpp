@@ -45,7 +45,7 @@ public:
 	{
 		DesTroyTree(_pRoot);//销毁这个Huffman的构造
 	}
-
+#
 	void CreatHuffmanTree(const vector<w>& v,const w& invalid)
 	{//构建森林
 		if (v.empty())
@@ -55,7 +55,7 @@ public:
 		//由于优先级队列默认的是大堆，需要自己给定比较的方法
 		//                节点的类型         底层实现的容器          默认的比较规则（按less的方式）
 		priority_queue<HuffmanTreeNode<w>*, vector<HuffmanTreeNode<w>*>, Compare<w>> minheap;
-		for (int i = 0; i < v.size(); i++)
+		for (size_t i = 0; i < v.size(); i++)
 		{
 			if (v[i] != invalid)
 			{

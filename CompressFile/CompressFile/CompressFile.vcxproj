@@ -65,11 +65,16 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="common.h" />
     <ClInclude Include="CompressFile.h" />
     <ClInclude Include="HuffmanTree.hpp" />
+    <ClInclude Include="LZ77.h" />
+    <ClInclude Include="LZ77HashTable.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="CompressFileHuff.cpp" />
+    <ClCompile Include="LZ77.cpp" />
+    <ClCompile Include="LZ77HashTable.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
