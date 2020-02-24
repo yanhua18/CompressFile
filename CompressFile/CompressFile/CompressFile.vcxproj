@@ -73,6 +73,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="CompressFileHuff.cpp" />
+    <ClCompile Include="FileCompressTest.cpp" />
     <ClCompile Include="LZ77.cpp" />
     <ClCompile Include="LZ77HashTable.cpp" />
   </ItemGroup>
