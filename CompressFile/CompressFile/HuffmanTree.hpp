@@ -1,4 +1,3 @@
-/*
 #pragma once
 #include<iostream>
 using namespace std;
@@ -99,4 +98,4 @@ private:
 		root = nullptr;
 	}
 };
-*/
+

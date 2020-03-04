@@ -1,4 +1,3 @@
-/*
 #include"CompressFile.h"
 #include"HuffmanTree.hpp"
 #include<assert.h>
@@ -79,5 +78,3 @@ void CompreeFileHuff::HuffmanCode(HuffmanTreeNode<CharInfo>* proot)
 		reverse(strCode.begin(), strCode.end());
 	}
 }
-
-*/

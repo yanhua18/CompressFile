@@ -1,20 +1,27 @@
-﻿生成启动时间为 2020/3/1 15:59:11。
-     1>项目“E:\程序文件\a_GitHub\CompressFile\CompressFile\CompressFile\CompressFile.vcxproj”在节点 2 上(Rebuild 个目标)。
+﻿生成启动时间为 2020/3/4 14:14:15。
+     1>项目“E:\程序文件\a_GitHub\CompressFile\CompressFile\CompressFile\CompressFile.vcxproj”在节点 2 上(Build 个目标)。
      1>ClCompile:
-         E:\VS2013\VC\bin\CL.exe /c /I"E:\App\Visual Leak Detector\include" /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D _MBCS /D _MBCS /D _CRT_SECURE_NO_WARNINGS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt CompressFileHuff.cpp FileCompressTest.cpp LZ77.cpp LZ77HashTable.cpp
-         LZ77HashTable.cpp
-         LZ77.cpp
+         E:\VS2013\VC\bin\CL.exe /c /I"E:\App\Visual Leak Detector\include" /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D _MBCS /D _MBCS /D _CRT_SECURE_NO_WARNINGS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt CompressFileHuff.cpp FileCompressTest.cpp
          FileCompressTest.cpp
          CompressFileHuff.cpp
+     1>e:\程序文件\a_github\compressfile\compressfile\compressfile\huffmantree.hpp(60): error C2451: “CharInfo”类型的条件表达式是非法的
+                 没有可用于执行该转换的用户定义的转换运算符，或者无法调用该运算符
+                 e:\程序文件\a_github\compressfile\compressfile\compressfile\huffmantree.hpp(50): 编译类 模板 成员函数“void HuffmanTree<CharInfo>::CreatHuffmanTree(const std::vector<CharInfo,std::allocator<_Ty>> &,const w &)”时
+                 with
+                 [
+                     _Ty=CharInfo
+         ,            w=CharInfo
+                 ]
+                 e:\程序文件\a_github\compressfile\compressfile\compressfile\compressfilehuff.cpp(41): 参见对正在编译的函数 模板 实例化“void HuffmanTree<CharInfo>::CreatHuffmanTree(const std::vector<CharInfo,std::allocator<_Ty>> &,const w &)”的引用
+                 with
+                 [
+                     _Ty=CharInfo
+         ,            w=CharInfo
+                 ]
+                 e:\程序文件\a_github\compressfile\compressfile\compressfile\compressfilehuff.cpp(40): 参见对正在编译的类 模板 实例化“HuffmanTree<CharInfo>”的引用
          正在生成代码...
-       Link:
-         E:\VS2013\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"E:\程序文件\a_GitHub\CompressFile\CompressFile\Debug\CompressFile.exe" /INCREMENTAL /NOLOGO /LIBPATH:"E:\App\Visual Leak Detector\lib\Win32" kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"E:\程序文件\a_GitHub\CompressFile\CompressFile\Debug\CompressFile.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"E:\程序文件\a_GitHub\CompressFile\CompressFile\Debug\CompressFile.lib" /MACHINE:X86 Debug\CompressFileHuff.obj
-         Debug\FileCompressTest.obj
-         Debug\LZ77.obj
-         Debug\LZ77HashTable.obj
-         CompressFile.vcxproj -> E:\程序文件\a_GitHub\CompressFile\CompressFile\Debug\CompressFile.exe
-     1>已完成生成项目“E:\程序文件\a_GitHub\CompressFile\CompressFile\CompressFile\CompressFile.vcxproj”(Rebuild 个目标)的操作。
+     1>已完成生成项目“E:\程序文件\a_GitHub\CompressFile\CompressFile\CompressFile\CompressFile.vcxproj”(Build 个目标)的操作 - 失败。
 
-生成成功。
+生成失败。
 
-已用时间 00:00:04.64
+已用时间 00:00:02.76

@@ -1,4 +1,3 @@
-/*
 #pragma once
 #include"HuffmanTree.hpp"
 #include<string>
@@ -41,4 +40,3 @@ public:
 private:
 	vector<CharInfo> _charInfo;
 };
-*/
