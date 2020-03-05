@@ -55,12 +55,13 @@ public:
 		//由于优先级队列默认的是大堆，需要自己给定比较的方法
 		//                节点的类型         底层实现的容器          默认的比较规则（按less的方式）
 		priority_queue<HuffmanTreeNode<w>*, vector<HuffmanTreeNode<w>*>, Compare<w>> minheap;
-		for (size_t i = 0; i < v.size(); i++)
+		for (auto e : v)
 		{
-			if (v[i] != invalid)
+			if (e == invalid)
 			{
-				minheap.push(new HuffmanTreeNode<w>(v[i]));
+				continue;
 			}
+			minheap.push(new HuffmanTreeNode<w>(e));
 		}
 		//看森林是否超过两棵树
 		while (minheap.size()>1)
@@ -79,6 +80,8 @@ public:
 		//当森林只有一棵树了，这个数就是Huffman数
 		_pRoot = minheap.top();
 	}
+
+	//huffman数的根
 	HuffmanTreeNode<w>* GetRoot()
 	{
 		return _pRoot;

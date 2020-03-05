@@ -13,9 +13,10 @@ void CompreeFileHuff::CompressFileHuff()//构造函数中初始化好字符数组
 		_charInfo[i]._charCount = 0;
 	}
 }
-//1，统计结果每个字符在文件中出现的次数
+
 void CompreeFileHuff::CompressFile(const string& Path)
 {
+	//1，统计结果每个字符在文件中出现的次数
 	FILE* fIn = fopen(Path.c_str(), "r");
 	if (fIn == nullptr)//看文件是否打开
 	{
@@ -36,19 +37,20 @@ void CompreeFileHuff::CompressFile(const string& Path)
 		}
 	}
 
-	//创建Huffman树
+	//2，以字符出现的次数创建Huffman树
 	HuffmanTree<CharInfo> ht;
 	ht.CreatHuffmanTree(_charInfo, CharInfo(0));
 	//获取字符的编码
 	HuffmanCode(ht.GetRoot());
 
+	//用每个字符的编码重新改写原文件
 
 	delete[] ReadBuffer;
 	fclose(fIn);
 }
 
 
-//用每个字符的编码重新改写原文件
+//获取字符的编码
 void CompreeFileHuff::HuffmanCode(HuffmanTreeNode<CharInfo>* proot)
 {
 	if (proot == nullptr)
