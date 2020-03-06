@@ -33,11 +33,15 @@ struct CharInfo
 class CompreeFileHuff
 {
 public:
-	void CompressFileHuff();//构造函数中初始化好字符数组
+	CompreeFileHuff();//构造函数中初始化好字符数组
 	void CompressFile(const string& strPath);//压缩文件
 	void UNComoressFile(const string& strPath);//解压缩
-	void HuffmanCode(HuffmanTreeNode<CharInfo>* proot);//获取Huffman编码
 
+
+private:
+	void HuffmanCode(HuffmanTreeNode<CharInfo>* proot);//获取Huffman编码
+	void WriteHead(FILE* fOut,const string& filePosFix);
+	string GetFilePostFix(const string& fileName);
 
 
 private:

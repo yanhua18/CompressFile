@@ -45,7 +45,7 @@ public:
 	{
 		DesTroyTree(_pRoot);//销毁这个Huffman的构造
 	}
-#
+
 	void CreatHuffmanTree(const vector<w>& v,const w& invalid)
 	{//构建森林
 		if (v.empty())
