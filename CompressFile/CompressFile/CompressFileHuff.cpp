@@ -24,7 +24,7 @@ void CompreeFileHuff::CompressFile(const string& Path)
 		assert(false);
 		return;
 	}
-	char* ReadBuffer = new char[1024];
+	unsigned char * ReadBuffer = new unsigned char[1024];
 	while (true)
 	{
 		int rdsize = fread(ReadBuffer, 1, 1024, fIn);//返回值是读到了多少个字节
@@ -109,17 +109,78 @@ void CompreeFileHuff::UNComoressFile(const string& strPath)
 	{
 		string strChCount;
 		ReadLine(fIn, strChCount);
-		_charInfo[strChCount[0]]._charCount = atoi(strChCount.c_str() + 2);
+		_charInfo[(unsigned char)strChCount[0]]._charCount = atoi(strChCount.c_str() + 2);
 
 	}
 	
 	//还原Huffman树
 	HuffmanTree<CharInfo> t;
 	t.CreatHuffmanTree(_charInfo, CharInfo(0));
+
+
+
 	//解压缩
+	FILE* fOut = fopen("7.txt", "w");//用来保存压缩文件
+	assert(fOut);
+
+	char* pReadBuff = new char[1024];
+	char ch = 0;
+	HuffmanTreeNode<CharInfo>* pCur = t.GetRoot();
+	size_t fileSize = pCur->_value._charCount;
+	size_t unCount = 0;
+	while (true)
+	{
+		size_t rdsize = fread(pReadBuff, 1, 1024, fIn);
+		if (0 == rdsize)
+			break;
+
+		for (size_t i = 0; i < rdsize; ++i)
+		{
+			//只需将一个字节中的8个比特位进行单独的处理
+			ch = pReadBuff[i];
+			for (int pos = 0; pos < 8; pos++)
+			{
+				if (ch & 0x80)
+				{
+					pCur = pCur->_pRight;
+				}
+				else
+				{
+					pCur = pCur->_pLeft;
+				}
+
+				ch <<= 1;
+
+				if (pCur->_pLeft == nullptr&&pCur->_pRight == nullptr)
+				{
+					unCount++;
+					fputc(pCur->_value._ch, fOut);
+					if (unCount == fileSize)
+						break;
+					pCur = t.GetRoot();
+				}
+			}
+		}
+	}
+	delete[] pReadBuff;
+	fclose(fIn);
+	fclose(fOut);
 }
 
+void CompreeFileHuff::ReadLine(FILE* fIn, string& strInfo)
+{
+	assert(fIn);
 
+	while (!feof(fIn))
+	{
+		char ch = fgetc(fIn);
+		if (ch == '\n')
+			break;
+
+		strInfo += ch;
+	}
+
+}
 
 
 string CompreeFileHuff::GetFilePostFix(const string& fileName)

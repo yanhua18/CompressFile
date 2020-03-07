@@ -42,7 +42,7 @@ private:
 	void HuffmanCode(HuffmanTreeNode<CharInfo>* proot);//ªÒ»°Huffman±‡¬Î
 	void WriteHead(FILE* fOut,const string& filePosFix);
 	string GetFilePostFix(const string& fileName);
-
+	void ReadLine(FILE* fIn, string& strInfo);
 
 private:
 	vector<CharInfo> _charInfo;
