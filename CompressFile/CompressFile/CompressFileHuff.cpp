@@ -18,7 +18,7 @@ CompreeFileHuff::CompreeFileHuff()//构造函数中初始化好字符数组
 void CompreeFileHuff::CompressFile(const string& Path)
 {
 	//1，统计结果每个字符在文件中出现的次数
-	FILE* fIn = fopen(Path.c_str(), "r");
+	FILE* fIn = fopen(Path.c_str(), "rb");
 	if (fIn == nullptr)//看文件是否打开
 	{
 		assert(false);
@@ -37,7 +37,7 @@ void CompreeFileHuff::CompressFile(const string& Path)
 			_charInfo[ReadBuffer[i]]._charCount++;
 		}
 	}
-
+	
 	//2，以字符出现的次数创建Huffman树
 	HuffmanTree<CharInfo> ht;
 	ht.CreatHuffmanTree(_charInfo, CharInfo(0));
@@ -93,7 +93,7 @@ void CompreeFileHuff::CompressFile(const string& Path)
 //解压缩
 void CompreeFileHuff::UNComoressFile(const string& strPath)
 {
-	FILE* fIn = fopen(strPath.c_str(), "r");
+	FILE* fIn = fopen(strPath.c_str(), "rb");
 	assert(fIn);
 	//文件的后缀
 	string strFilePosFix;
@@ -109,6 +109,13 @@ void CompreeFileHuff::UNComoressFile(const string& strPath)
 	{
 		string strChCount;
 		ReadLine(fIn, strChCount);
+
+		//如果读取到的是换行,需要单独处理
+		if (strChCount.empty())
+		{
+			strChCount += '\n';
+			ReadLine(fIn, strChCount);
+		}
 		_charInfo[(unsigned char)strChCount[0]]._charCount = atoi(strChCount.c_str() + 2);
 
 	}
@@ -120,7 +127,7 @@ void CompreeFileHuff::UNComoressFile(const string& strPath)
 
 
 	//解压缩
-	FILE* fOut = fopen("7.txt", "w");//用来保存压缩文件
+	FILE* fOut = fopen("7.txt", "wb");//用来保存压缩文件
 	assert(fOut);
 
 	char* pReadBuff = new char[1024];
