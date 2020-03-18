@@ -45,7 +45,7 @@ void CompreeFileHuff::CompressFile(const string& Path)
 	HuffmanCode(ht.GetRoot());
 
 	//4，用每个字符的编码重新改写原文件
-	FILE* fOut = fopen("end_compress.txt", "wb");//用来保存压缩结果的文件
+	FILE* fOut = fopen("end_compress.gif", "wb");//用来保存压缩结果的文件
 	assert(fOut);
 
 	WriteHead(fOut, Path);
@@ -127,7 +127,7 @@ void CompreeFileHuff::UNComoressFile(const string& strPath)
 
 
 	//解压缩
-	FILE* fOut = fopen("UNcompress_src.txt", "wb");//用来保存解压缩文件
+	FILE* fOut = fopen("UNcompress_src.gif", "wb");//用来保存解压缩文件
 	assert(fOut);
 
 	char* pReadBuff = new char[1024];
